@@ -38,10 +38,15 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                     Product product = products.get(getAdapterPosition());
                     Toast.makeText(view.getContext(), "Image Clicked"+product.getTitle(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(view.getContext(),ProductDetailsActivity.class);
+
+                    /*
                     intent.putExtra("id",product.getId());
                     intent.putExtra("title",product.getTitle());
                     intent.putExtra("price",product.getPrice());
                     intent.putExtra("imageId",product.getImageId());
+                     */
+
+                    intent.putExtra("product",product);
                     view.getContext().startActivity(intent);
                 }
             });
@@ -99,7 +104,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         Product product = products.get(position);
         holder.imgProduct.setImageResource(product.getImageId());
         holder.txtProductTitle.setText(product.getTitle());
-        //holder.txtProductPrice.setText("Rs. " + product.getPrice() );
+        holder.txtProductPrice.setText("Rs." + product.getPrice() );
 
         /*
         holder.imgProduct.setOnClickListener(
@@ -120,7 +125,16 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                 }
         );
 
-         */
 
+        holder.txtProductPrice.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(view.getContext(), "Price"+product.getPrice(),Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+
+         */
     }
 }

@@ -33,13 +33,20 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     public void extractInput(){
         Intent intent = getIntent();
-        id = intent.getIntExtra("id",-1);
+        product = (Product) intent.getSerializableExtra("product");
+        /*id = intent.getIntExtra("id",-1);
         title = intent.getStringExtra("title");
         price = intent.getIntExtra("price",0);
         imageId = intent.getIntExtra("imageId", R.mipmap.ic_launcher_round);
 
+
         imgProduct.setImageResource(imageId);
         txtProductTitle.setText(title);
-        //txtProductPrice.setText(price);
+        txtProductPrice.setText(price);
+         */
+
+        imgProduct.setImageResource(product.getImageId());
+        txtProductTitle.setText(product.getTitle());
+        txtProductPrice.setText("Rs." + product.getPrice() );
     }
 }

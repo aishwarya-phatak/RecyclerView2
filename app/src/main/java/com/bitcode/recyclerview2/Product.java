@@ -2,7 +2,7 @@ package com.bitcode.recyclerview2;
 
 import java.io.Serializable;
 
-public class Product {
+public class Product implements Serializable {
     private int id;
     private String title;
     private int imageId;
